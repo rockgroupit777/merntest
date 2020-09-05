@@ -1,0 +1,15 @@
+{
+  "name": "merntest",
+  "version": "1.0.0",
+  "description": "MERNG with TypeScript",
+  "main": "index.js",
+  "author": "rockgroupit777 <rockgroupit777@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only server/src"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.0.0-pre.62",
+    "typescript": "^4.0.2"
+  }
+}
