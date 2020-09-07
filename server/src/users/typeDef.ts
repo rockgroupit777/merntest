@@ -6,7 +6,7 @@ export default gql`
     users: [User!]!
   }
   type Mutation {
-    signUp(createUserInput: CreateUserInput): User!
+    signUp(createUserInput: CreateUserInput): AuthData!
     signIn(email: String!, password: String!): AuthData!
     updateUser(userId: ID!, updateUserInput: UpdateUserInput): User!
   }
@@ -21,11 +21,16 @@ export default gql`
     lastName: String!
     avatar: String
     role: Role
+    permissions: [String]
     createdAt: String
     updatedAt: String
   }
   type AuthData {
     userId: ID!
+    firstName: String
+    lastName: String
+    role: Role!
+    permissions: [String]
     token: String!
     tokenExpiration: Int!
   }
@@ -34,6 +39,7 @@ export default gql`
     ADMIN
     MEMBER
   }
+
   input CreateUserInput {
     email: String!
     username: String!

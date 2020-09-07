@@ -7,7 +7,7 @@ export const attemptSignIn = async (
   { email, password }: { email: string; password: string },
   fields: string
 ): Promise<UserDocument> => {
-  const user = await User.findOne({ email }).select(`${fields}password`);
+  const user = await User.findOne({ email });
   if (!user || !user.matchesPassword(password)) {
     throw new AuthenticationError(
       "Incorrect email or password, please try again"

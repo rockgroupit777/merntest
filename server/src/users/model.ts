@@ -41,6 +41,10 @@ const userSchema = new Schema(
       type: String,
       default: "MEMBER",
     },
+    permissions: {
+      type: Array,
+      default: ["CREATE_OWN", "READ_OWN", "UPDATE_OWN", "DELETE_OWN"],
+    },
   },
   { timestamps: true }
 );

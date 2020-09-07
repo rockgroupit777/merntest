@@ -7,6 +7,7 @@ export interface UserDocument extends Document {
   lastName: string;
   avatar: string;
   role: string;
+  permissions: [string];
   matchesPassword: (password: string) => Promise<boolean>;
 }
 export interface UserModel extends Model<UserDocument> {

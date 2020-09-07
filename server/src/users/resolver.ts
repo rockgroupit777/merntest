@@ -47,11 +47,17 @@ const userMutation = {
       });
       const user = await User.create(args.createUserInput);
       pubsub.publish(USER_ADDED, { userAdded: user });
-      const token = jwt.sign({ userId: user._id }, config.jwtSecret, {
-        expiresIn: 3600,
-      });
+      const token = jwt.sign(
+        { userId: user._id, role: user.role, permissions: user.permissions },
+        config.jwtSecret,
+        {
+          expiresIn: 3600,
+        }
+      );
       return {
         userId: user._id,
+        role: user.role,
+        permissions: user.permissions,
         token,
         tokenExpiration: 1,
       };
@@ -93,11 +99,25 @@ const userMutation = {
       if (!user) {
         throw new Error("User does not exist");
       }
-      const token = jwt.sign({ userId: user._id }, config.jwtSecret, {
-        expiresIn: 3600,
-      });
+      const token = jwt.sign(
+        {
+          userId: user._id,
+          role: user.role,
+          permissions: user.permissions,
+          firstname: user.firstName,
+          lastname: user.lastName,
+        },
+        config.jwtSecret,
+        {
+          expiresIn: 3600,
+        }
+      );
       return {
         userId: user._id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        role: user.role,
+        permissions: user.permissions,
         token,
         tokenExpiration: 1,
       };
