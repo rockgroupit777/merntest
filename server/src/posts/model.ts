@@ -40,6 +40,7 @@ const postSchema = new Schema({
   },
   status: {
     type: Boolean,
+    default:true
   },
   likes: [
     {
@@ -51,6 +52,7 @@ const postSchema = new Schema({
   ],
   commentStatus: {
     type: Boolean,
+    default:true
   },
 });
 

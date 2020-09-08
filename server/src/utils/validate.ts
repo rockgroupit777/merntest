@@ -1,6 +1,6 @@
 import Joi, { ExtensionFactory } from "@hapi/joi";
 import { Types } from "mongoose";
-const objectId: ExtensionFactory = (Joi) => ({
+export const objectId: ExtensionFactory = (Joi) => ({
   type: "objectId",
   base: Joi.string(),
   messages: {
