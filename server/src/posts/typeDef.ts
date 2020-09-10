@@ -31,9 +31,9 @@ export default gql`
     content: String!
     cover: String
     photos: [String]
-    user: [User!]
+    userId: ID!
     status: Boolean
-    likes: [User]
+    likes: [ID]
     commentStatus: Boolean
   }
   input UpdatePostInput {
@@ -43,9 +43,9 @@ export default gql`
     content: String!
     cover: String
     photos: [String]
-    user: [User!]
+    userId: ID!
     status: Boolean
-    likes: [User]
+    likes: [ID]
     commentStatus: Boolean
   }
 `;
