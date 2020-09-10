@@ -2,9 +2,14 @@ import { gql, PubSub } from "apollo-server-express";
 import jwt from "jsonwebtoken";
 import config from "../config";
 import { fields, objectIdValidate } from "../utils";
-import { signInValidate, signUpValidate, updateUserValidate } from "./validate";
-import { User, UserDocument } from "./";
-import { attemptSignIn } from "./middleware";
+import {
+  User,
+  UserDocument,
+  signInValidate,
+  signUpValidate,
+  updateUserValidate,
+  attemptSignIn,
+} from "./";
 
 const pubsub = new PubSub();
 const USER_ADDED = "USER_ADDED";
