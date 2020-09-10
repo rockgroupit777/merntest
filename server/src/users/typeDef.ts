@@ -1,16 +1,16 @@
 import { gql } from "apollo-server-express";
 
 export default gql`
-  type Query {
+  extend type Query {
     user(userId: ID!): User!
     users: [User!]!
   }
-  type Mutation {
+  extend type Mutation {
     signUp(createUserInput: CreateUserInput): AuthData!
     signIn(email: String!, password: String!): AuthData!
     updateUser(userId: ID!, updateUserInput: UpdateUserInput): User!
   }
-  type Subscription {
+  extend type Subscription {
     userAdded: User
   }
   type User {

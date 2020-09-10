@@ -1,14 +1,14 @@
 import { gql } from "apollo-server-express";
 export default gql`
-    type Query{
+    extend type Query{
         product(productId:ID!):Product!
         products:[Product!]
     }
-    type Mutation{
+    extend type Mutation{
         createProduct(createProductInput: CreateProductInput):Product!
         updateProduct(updateProductInput: UpdateProductInput):Product!
     }
-    type Subscription{
+    extend type Subscription{
 
     }
     type Product{

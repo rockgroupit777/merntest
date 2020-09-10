@@ -1,14 +1,14 @@
 import { gql } from "apollo-server-express";
 export default gql`
-  type Query {
+  extend type Query {
     post(postId: ID!): Post!
     posts: [Post!]!
   }
-  type Mutation {
+  extend type Mutation {
     createPost(createPostInput: CreatePostInput): Post!
     updatePost(postId: ID!, updatePostInput: UpdatePostInput): Post!
   }
-  type Subscription {
+  extend type Subscription {
     postAdded: Post
   }
   type Post {

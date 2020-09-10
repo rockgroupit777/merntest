@@ -2,7 +2,7 @@ import { gql } from "apollo-server-express";
 import { fields, objectId, objectIdValidate } from "../utils";
 import { Post, PostDocument, createPostValidate } from "./";
 
-const postQueries = {
+export const postQueries = {
   posts: (
     parent: any,
     args: any,
@@ -25,7 +25,7 @@ const postQueries = {
     }
   },
 };
-const postMutation = {
+export const postMutation = {
   createPost: async (
     parent: any,
     args: { createPostInput: any },
@@ -40,3 +40,4 @@ const postMutation = {
     }
   },
 };
+export const postSubscription = {};
