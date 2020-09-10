@@ -4,15 +4,15 @@ export default gql`
     post(postId: ID!): Post!
     posts: [Post!]!
   }
-  type Mutation{
-      createPost(createPostInput:CreatePostInput): Post!
-      updatePost(postId:ID!,updatePostInput:UpdatePostInput): Post!
+  type Mutation {
+    createPost(createPostInput: CreatePostInput): Post!
+    updatePost(postId: ID!, updatePostInput: UpdatePostInput): Post!
   }
-  type Subcription{
-
+  type Subscription {
+    postAdded: Post
   }
-  type Post{
-    _id:ID!
+  type Post {
+    _id: ID!
     title: String!
     alias: String!
     summary: String!
@@ -24,7 +24,7 @@ export default gql`
     likes: [User]
     commentStatus: Boolean
   }
-  input CreatePostInput{
+  input CreatePostInput {
     title: String!
     alias: String!
     summary: String!
@@ -36,7 +36,7 @@ export default gql`
     likes: [User]
     commentStatus: Boolean
   }
-  input UpdatePostInput{
+  input UpdatePostInput {
     title: String!
     alias: String!
     summary: String!
