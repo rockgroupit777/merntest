@@ -3,7 +3,7 @@ import { fields, objectId, objectIdValidate } from "../utils";
 import { Post, PostDocument, createPostValidate } from "./";
 
 export const postQueries = {
-  posts: (
+  posts: async (
     parent: any,
     args: any,
     context: any,
@@ -33,8 +33,10 @@ export const postMutation = {
     info: any
   ) => {
     try {
-      await createPostValidate.validateAsync(args, { abortEarly: false });
-      return Post.create(args);
+      await createPostValidate.validateAsync(args.createPostInput, {
+        abortEarly: false,
+      });
+      return Post.create(args.createPostInput);
     } catch (error) {
       throw error;
     }

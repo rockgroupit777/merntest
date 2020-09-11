@@ -7,7 +7,7 @@ export interface PostDocument extends Document {
   content: string;
   cover: string;
   photos: [string];
-  user: UserDocument["_id"];
+  userId: UserDocument["_id"];
   status: boolean;
   likes: [UserDocument["_id"]];
   commentStatus: boolean;

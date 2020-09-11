@@ -19,7 +19,7 @@ export default gql`
     content: String!
     cover: String
     photos: [String]
-    user: [User!]
+    userId: ID!
     status: Boolean
     likes: [User]
     commentStatus: Boolean
