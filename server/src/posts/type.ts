@@ -3,7 +3,7 @@ import { UserDocument } from "../users";
 export interface PostDocument extends Document {
   title: string;
   alias: string;
-  summary: string;
+  summary?: string;
   content: string;
   cover: string;
   photos?: string[];
